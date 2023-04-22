@@ -32,16 +32,6 @@ int _printf(const char *format, ...)
 						putchar(*s);
 					count++;
 					break;
-				case 'i':
-					i = va_arg(args, int);
-					putchar(i);
-					count++;
-					break;
-				case 'd':
-					d = va_arg(args, int);
-					putchar(d);
-					count++;
-					break;
 				case '%':/*percent symbol*/
 					putchar('%');
 					count++;
