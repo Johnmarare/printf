@@ -8,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	int count = 0;/*stores count*/
-	int i;/*for iterating*/
+	int j, i, d;/*for iterating*/
 	char *s;
 	char c;
 	va_list args;
@@ -28,11 +28,19 @@ int _printf(const char *format, ...)
 					break;
 				case 's':/*string*/
 					s = va_arg(args, char *);
-					for (i = 0; s[i] != '\0'; i++)
-					{
+					for (j = 0; s[j] != '\0'; j++)
 						putchar(*s);
-						count++;
-					}
+					count++;
+					break;
+				case 'i':
+					i = va_arg(args, int);
+					putchar(i);
+					count++;
+					break;
+				case 'd':
+					d = va_arg(args, int);
+					putchar(d);
+					count++;
 					break;
 				case '%':/*percent symbol*/
 					putchar('%');
