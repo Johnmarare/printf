@@ -8,7 +8,8 @@
 int _printf(const char *format, ...)
 {
 	int count = 0;/*stores count*/
-	int j, i, d;/*for iterating*/
+	int i;
+	int d;/*for iterating*/
 	va_list args;
 
 	va_start(args, format);

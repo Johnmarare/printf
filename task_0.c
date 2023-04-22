@@ -7,13 +7,17 @@
  */
 int _printf(const char *format, ...)
 {
-	int count = 0;/*stores count*/
-	int j, i, d;/*for iterating*/
+	int count;/*stores count*/
+	int j;/*for iterating*/
 	char *s;
 	char c;
+	char buffer[1024];/*1Gb == 1024bytes*/
+	int buffer_index = 0;
 	va_list args;
 
 	va_start(args, format);
+
+	count = 0;
 	while (*format != '\0')
 	{
 		if (*format == '%')/*before specifier percent*/
@@ -22,27 +26,34 @@ int _printf(const char *format, ...)
 			switch (*format)
 			{
 				case 'c':/*as in character*/
-					c = va_arg(args, int);
-					putchar(c);
+					c = (char)va_arg(args, int);
+					buffer[buffer_index++] = c;
 					count++;
 					break;
 				case 's':/*string*/
 					s = va_arg(args, char *);
 					for (j = 0; s[j] != '\0'; j++)
-						putchar(*s);
+						buffer[buffer_index++] = *s;
 					count++;
 					break;
 				case '%':/*percent symbol*/
-					putchar('%');
+					buffer[buffer_index++] = '%';
 					count++;
 					break;
 				default:
-					putchar(*format);
-				break;
+					/*if unsupportd format specifier*/
+					break;
 			}
+		}
+		else
+		{
+			buffer[buffer_index++] = *format;
+			count++;
 		}
 		format++;
 	}
 	va_end(args);
+	/*printing to the stdoutput,*/
+	write(1, &buffer, count);
 	return (count);
 }
