@@ -1,5 +1,4 @@
 #include "main.h"
-#include<stdio.h>
 /**
  * _printf - function
  * @format: contains types of arguments
@@ -7,7 +6,7 @@
  */
 int _printf(const char *format, ...)
 {
-	int count;/*stores count*/
+	int count = 0;/*stores count*/
 	int j;/*for iterating*/
 	char *s;
 	char c;
@@ -16,10 +15,8 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
-
-	count = 0;
 	while (*format != '\0')
-	{
+	}
 		if (*format == '%')/*before specifier percent*/
 		{
 			format++;
@@ -41,7 +38,6 @@ int _printf(const char *format, ...)
 					count++;
 					break;
 				default:
-					/*if unsupportd format specifier*/
 					break;
 			}
 		}
@@ -53,7 +49,6 @@ int _printf(const char *format, ...)
 		format++;
 	}
 	va_end(args);
-	/*printing to the stdoutput,*/
-	write(1, &buffer, count);
+	write(1, buffer, buffer_index);
 	return (count);
 }
