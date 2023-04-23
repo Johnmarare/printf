@@ -10,14 +10,18 @@ int print_char(char c)
 	_putchar(c);
 	return (0);
 }
-
+/**
+ * _printf - printf function
+ * @format: list of arguments
+ * Return: Always 0.
+ */
 int _printf(const char *format, ...)
 {
 	char c;
 	int count = 0;
 	va_list args;
-	va_start(args, format);
 
+	va_start(args, format);
 	while (*format != '\0')
 	{
 
@@ -46,29 +50,4 @@ int _printf(const char *format, ...)
 	/*_print_string(format);*/
 	va_end(args);
 	return (count);
-}
-
-
-int main(void)
-{
-	int count;
-	_printf("Character:[%c]\n", 'H');
-	printf("Character:[%c]\n", 'H');
-
-	count = _printf("Character:[%c]\n", 'H');
-	_printf("Count:[%d]\n", count);
-
-	count = _printf("Hello, world!\n");
-	_printf("Count:[%d]\n", count);
-
-	count = _printf("Integer:[%d]\n", 12345);
-	_printf("Count:[%d]\n", count);
-
-	count = _printf("Float:[%f]\n", 3.14159);
-	_printf("Count:[%d]\n", count);
-
-	count = _printf("Percent:[%%]\n");
-	_printf("Count:[%d]\n", count);
-
-	return (0);
 }

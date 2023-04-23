@@ -4,8 +4,7 @@
  * @n: input
  * Return: void.
  */
-
-void print_number(int n)
+int print_number(int n)
 {
 	if (n < 0)
 	{
@@ -17,13 +16,50 @@ void print_number(int n)
 		print_number(n / 10);
 	}
 	_putchar(n % 10 + '0');
-}
-/*
-int main (void)
-{
-	print_number(7);
-	_printf("\n");
-	print_number(1234567890);
-	_printf("\n";
 	return (0);
-}*/
+}
+/**
+ * _printf- printf function
+ * @format: type input
+ * Return: count
+ */
+int _printf(const char *format, ...)
+{
+	int i, d;
+	int count = 0;
+	va_list args;
+
+	va_start(args, format);
+	while (*format != '\0')
+	{
+
+		if (*format == '%')/*before specifier percent*/
+		{
+			format++;
+			switch (*format)
+			{
+				case 'd':/*as in decimal*/
+					d = va_arg(args, int);
+					count += print_number(d);
+					break;
+				case 'i':
+					i = va_arg(args, int);
+					count += print_number(i);
+					break;
+				default:
+					count += _putchar('%');
+					count += _putchar(*format);
+					break;
+
+			}
+		}
+		else
+		{
+			count += _putchar(*format);
+		}
+		format++;
+	}
+	/*_print_string(format);*/
+	va_end(args);
+	return (count);
+}

@@ -19,10 +19,3 @@ int _print_string(char *str)
 
 	return (len);
 }
-
-
-/*int main(void)
-{
-	_print_string("this is trial and error!!!, WE ARE TESTING CODE, TEST 123\n");
-	return (0);
-}*/

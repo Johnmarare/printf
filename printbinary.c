@@ -1,4 +1,9 @@
 #include <stdio.h>
+/**
+ * _printbinary - prints binary of a num
+ * @val: parameter
+ * Return: Always 0
+ */
 
 int _printbinary(unsigned int val)
 {
@@ -8,7 +13,6 @@ int _printbinary(unsigned int val)
 
 	if (val <= 0)
 	{
-		//putchar('0');
 		return (0);
 	}
 	mod = val % 2;
@@ -17,11 +21,4 @@ int _printbinary(unsigned int val)
 	count = _printbinary(quot);
 	printf("%d", mod);
 	return (count + 1);
-}
-
-int main(void)
-{
-	_printbinary(129887);
-	printf("\n");
-	return (0);
 }
