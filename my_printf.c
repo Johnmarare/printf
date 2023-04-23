@@ -13,30 +13,26 @@ int _printf(const char *format, ...)
 	va_list args;
 
 	va_start(args, format);
-
+	if (format == NULL)
+		return (-1);
 	while (*format != '\0')
 	{
-
 		if (*format == '%')/*before specifier percent*/
 		{
 			format++;
 			switch (*format)
 			{
 				case 'c':/*as in character*/
-					c = (char)va_arg(args, int);
-					count += print_char(c);
+					count += print_char((char)va_arg(args, int));
 					break;
 				case 'd':/*as in decimal*/
-					d = va_arg(args, int);
-					count += print_number(d);
+					count += print_number(va_arg(args, int));
 					break;
 				case 'i':
-					i = va_arg(args, int);
-					count += print_number(i);
+					count += print_number(va_arg(args, int));
 					break;
 				case 's':
-					s = va_arg(args, char *);
-					count += _print_string(s);
+					count += _print_string(va_arg(args, char *));
 					break;
 				case '%':
 					_putchar('%');
@@ -55,7 +51,6 @@ int _printf(const char *format, ...)
 		}
 		format++;
 	}
-	/*_print_string(format);*/
 	va_end(args);
 	return (count);
 }
