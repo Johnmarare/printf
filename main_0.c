@@ -18,5 +18,8 @@ int main(void)
 	_printf("Length:[%d, %i]\n", len, len);
 	printf("Length:[%d, %i]\n", len2, len2);
 
+	_printf("Character:[%c]\n", 'H');
+	printf("Character:[%c]\n", 'H');
+
 	return (0);
 }

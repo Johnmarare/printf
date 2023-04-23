@@ -10,13 +10,14 @@ int _printf(const char *format, ...)
 	int j;/*for iterating*/
 	char *s;
 	char c;
+	int i, d;
 	char buffer[1024];/*1Gb == 1024bytes*/
 	int buffer_index = 0;
 	va_list args;
 
 	va_start(args, format);
 	while (*format != '\0')
-	}
+	{
 		if (*format == '%')/*before specifier percent*/
 		{
 			format++;
@@ -37,9 +38,23 @@ int _printf(const char *format, ...)
 					buffer[buffer_index++] = '%';
 					count++;
 					break;
+				case 'd':
+					d = va_arg(args, int);
+					buffer[buffer_index++] = print_number(count);
+					count++;
+					break;
+				case 'i':
+					i = va_arg(args, int);
+					buffer[buffer_index++] = print_number(count);
+					count++;
+					break;
 				default:
 					break;
 			}
+			/*if (*format == 'd' || *format == 'i')
+			{
+				_printd(int val);
+			}*/
 		}
 		else
 		{
