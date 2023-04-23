@@ -18,8 +18,11 @@ int main(void)
 	_printf("Length:[%d, %i]\n", len, len);
 	printf("Length:[%d, %i]\n", len2, len2);
 
-	_printf("String:[%s]\n", "I am a string !");
-	printf("String:[%s]\n", "I am a string !");
+	len =_printf("String:[%s]\n", "I am a string !");
+	printf("the length of my printf is  %d\n", len);
+
+	len2 = printf("String:[%s]\n", "I am a string !");
+	printf("the length  of printf is %d\n", len2);
 
 	_printf("Character:[%c]\n", 'H');
 	printf("Character:[%c]\n", 'H');
