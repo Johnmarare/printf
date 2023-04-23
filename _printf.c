@@ -1,4 +1,5 @@
 #include "main.h"
+#include<stdlib.h>
 /**
  * _printf - printf function
  * @format: list of arguments
@@ -6,6 +7,9 @@
  */
 int _printf(const char *format, ...)
 {
+	char c;
+	char *s;
+	int i, d;
 	int count = 0;
 	va_list args;
 
@@ -14,22 +18,29 @@ int _printf(const char *format, ...)
 		return (-1);
 	while (*format != '\0')
 	{
+
 		if (*format == '%')/*before specifier percent*/
 		{
 			format++;
 			switch (*format)
 			{
 				case 'c':/*as in character*/
-					count += print_char((char)va_arg(args, int));
+					c = (char)va_arg(args, int);
+					count += print_char(c);
 					break;
 				case 'd':/*as in decimal*/
-					count += print_number(va_arg(args, int));
+					d = va_arg(args, int);
+					count += print_number(d);
 					break;
 				case 'i':
-					count += print_number(va_arg(args, int));
+					i = va_arg(args, int);
+					count += print_number(i);
 					break;
 				case 's':
-					count += _print_string(va_arg(args, char *));
+					s = va_arg(args, char *);
+					if (s == NULL)
+						return (-1);
+					count += _print_string(s);
 					break;
 				case '%':
 					_putchar('%');
@@ -48,6 +59,7 @@ int _printf(const char *format, ...)
 		}
 		format++;
 	}
+	/*_print_string(format);*/
 	va_end(args);
 	return (count);
 }
