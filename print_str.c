@@ -14,6 +14,10 @@ int _print_string(char *str)
 	int i;
 	int len;
 
+	if (str == NULL)
+	{
+		return(-1);
+	}
 	len = _strlen(str);
 
 	for (i = 0; i < len; i++)
