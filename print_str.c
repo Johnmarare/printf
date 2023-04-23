@@ -12,13 +12,13 @@
 int _print_string(char *str)
 {
 	int i;
-	int len;
+	int len = 0;
 
 	if (str == NULL)
 	{
 		return (-1);
 	}
-	len = _strlen(str);
+	len += _strlen(str);/*len += _strlen(str);*/
 
 	for (i = 0; i < len; i++)
 		_putchar(str[i]);
