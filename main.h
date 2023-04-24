@@ -6,9 +6,7 @@
 #include <stdio.h>
 #include<stdbool.h>
 #include<limits.h>
-
 int _printf(const char *format, ...);
-int _printd(int val);
 int print_number(int n);
 int _putchar(char c);
 int print_char(char c);
