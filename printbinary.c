@@ -13,7 +13,7 @@ int _printbinary(unsigned int value)
 
 	if (value <= 0)
 	{
-		return (1);
+		return (0);
 	}
 	mod = value % 2;
 	quot = value / 2;
