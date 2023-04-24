@@ -22,7 +22,7 @@ int _print_string(char *str)
 
 	for (i = 0; i < len; i++)
 	{
-		if(_putchar(str[i]) == EOF)
+		if (_putchar(str[i]) == EOF)
 		{
 			return (-1);
 		}
