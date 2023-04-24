@@ -1,47 +1,43 @@
-#include <stdio.h>
-#include "main.h"
-#include<limits.h>
+#include"main.h"
 /**
  * print_unsigned - prints unsigned integer
  * @num: parameter
  * Return: Always 0
  */
-
-/*Check if num is within the range of valid unsigned int values*/
 /*UINT is maximum value of unsigned int, u can use 4294967295 but with bool*/
 int print_unsigned(unsigned int num)
 {
-	/*unsigned int sum;*/
+	unsigned int divisor;
+	int digit;
 
-	/* Check if num is negative 
-	if ((int)num < 0)
-	{
-		printf("Error\n");
-		return (-1);
-	}*/
-
-	/* Check if num is within the range of valid unsigned int values */
 	if (num > UINT_MAX)
 	{
-		printf("Error\n");
+		_putchar('E');
+		_putchar('r');
+		_putchar('r');
+		_putchar('o');
+		_putchar('r');
+		_putchar('\n');
 		return (-1);
 	}
 
-	/* Check for arithmetic overflow
-	sum = num + 1;
-	if (sum < num)
+	divisor = 1;
+	while (num / divisor >= 10)
+		divisor *= 10;
+
+	while (divisor != 0)
 	{
-		printf("Error\n");
-		return (-1);
+		digit = num / divisor;
+		_putchar(digit + '0');
+		num %= divisor;
+		divisor /= 10;
 	}
 
-	 Check for undefined behavior in bitwise shifts
-	if (num >= sizeof(unsigned int) * CHAR_BIT)
-	{
-		printf("Error\n");
-		return (-1);
-	}*/
+	_putchar('\n');
 
-	printf("%u\n", num);
 	return (0);
 }
+/*If num is within the valid range, the function then calculates the largest*/
+/*power of 10 that is less than or equal to num*/
+/*This power of 10 is used to extract each digit of num and print it out*/
+/*The function continues extracting digits until all digits have been printed*/
