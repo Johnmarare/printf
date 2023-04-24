@@ -17,6 +17,7 @@ int _printf(const char *format, ...)
 	unsigned int x;
 	unsigned int X;
 	/*char *S;*/
+	void *ptr;
 	va_list args;
 
 	va_start(args, format);
@@ -55,13 +56,13 @@ int _printf(const char *format, ...)
 					count += print_octal(o);
 					break;
 				case 'x':
-                                        x = va_arg(args, unsigned int);
-                                        count += print_hex(x);
-                                        break;
+					x = va_arg(args, unsigned int);
+					count += print_hex(x);
+					break;
 				case 'X':
-                                        X = va_arg(args, unsigned int);
-                                        count += print_HEX(X);
-                                        break;
+					X = va_arg(args, unsigned int);
+					count += print_HEX(X);
+					break;
 				case 's':/*string*/
 					s = va_arg(args, char *);
 					if (s == NULL)
@@ -70,6 +71,12 @@ int _printf(const char *format, ...)
 					break;
 				case 'S':
 					handle_S_conversion(va_arg(args, char *));
+					break;
+				case 'p': 
+
+					ptr = va_arg(args, void *);
+					printf("0x%p\n", ptr);
+					count += sizeof(void *) * 2 + 2; 
 					break;
 				case '%':
 					_putchar('%');
