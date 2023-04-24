@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 	int count = 0;
 	unsigned int b;
 	unsigned int u;
+	unsigned int o;
 	va_list args;
 
 	va_start(args, format);
@@ -45,6 +46,10 @@ int _printf(const char *format, ...)
 				case 'u':
 					u = va_arg(args, unsigned int);
 					count += print_unsigned(u);
+					break;
+				case 'o':
+					o = va_arg(args, unsigned int);
+					count += print_octal(o);
 					break;
 				case 's':/*string*/
 					s = va_arg(args, char *);
