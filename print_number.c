@@ -6,7 +6,7 @@
  */
 int print_number(int n)
 {
-	int number;
+	int num;
 	int last = n % 10;
 	int digit;
 	int  i = 1;
