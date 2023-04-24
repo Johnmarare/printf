@@ -9,27 +9,23 @@ int _printf(const char *format, ...)
 {
 	char c;
 	char *s;
-	int i, d;
+	int i, j, d;
 	int count = 0;
-	unsigned int b;
-	unsigned int u;
-	unsigned int o;
-	unsigned int x;
-	unsigned int X;
-	/*char *S;*/
-	void *ptr;
+	unsigned int b, u, o, x, X;
+	/*void *ptr;*/
 	va_list args;
 
+	j = 0;
 	va_start(args, format);
-	if (format == NULL)
+	if (format == NULL || format[j] == '\0') 
 		return (-1);
-	while (*format != '\0')
+	while (format[j] != '\0')
 	{
 
-		if (*format == '%')/*before specifier percent*/
+		if (format[j] == '%')/*before specifier percent*/
 		{
-			format++;
-			switch (*format)
+			j++;
+			switch (format[j])
 			{
 				case 'c':/*as in character*/
 					c = (char)va_arg(args, int);
@@ -72,28 +68,27 @@ int _printf(const char *format, ...)
 				case 'S':
 					handle_S_conversion(va_arg(args, char *));
 					break;
-				case 'p': 
+				/*case 'p': 
 
-					ptr = va_arg(args, void *);
-					printf("0x%p\n", ptr);
+					*ptr = va_arg(args, void *);
 					count += sizeof(void *) * 2 + 2; 
-					break;
+					break;*/
 				case '%':
 					_putchar('%');
 					count++;
 					break;
 				default:
 					count += _putchar('%');
-					count += _putchar(*format);
+					count += _putchar(format[j]);
 					break;
 
 			}
 		}
 		else
 		{
-			count += _putchar(*format);
+			count += _putchar(format[j]);
 		}
-		format++;
+		j++;
 	}
 	/*_print_string(format);*/
 	va_end(args);
