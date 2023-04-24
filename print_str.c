@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdio.h>
 #include "main.h"
-
 /**
  * _print_string - prints a string
  * @str: string to print
@@ -16,17 +15,19 @@ int _print_string(char *str)
 
 	if (str == NULL)
 	{
-		return (-1);
+		str = "(null)";
+		len = _strlen(str);
+		for (i = 0; i < len; i++)
+			_putchar(str[i]);
+		return (len);
 	}
-	len = _strlen(str);/*len += _strlen(str);*/
-
-	for (i = 0; i < len; i++)
+	else
 	{
-		if (_putchar(str[i]) == EOF)
-		{
-			return (-1);
-		}
-	}
+		len = _strlen(str);/*len += _strlen(str);*/
 
-	return (len);
+		for (i = 0; i < len; i++)
+			_putchar(str[i]);
+
+		return (len);
+	}
 }

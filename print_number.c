@@ -1,28 +1,46 @@
 #include "main.h"
 /**
- * print_number - Entry point
+ * print_number - prints number
  * @n: input
  * Return: void.
  */
 int print_number(int n)
 {
-	int count = 0;
+	int number;
+	int last = n % 10;
+	int digit;
+	int  i = 1;
+	int exp = 1;
 
-	if (n == 0)
+	n = n / 10;
+	num = n;
+
+	if (last < 0)
 	{
-		count += _putchar('0');
-		return (1);
-	}
-	if (n < 0)
-	{
-		count += _putchar('-');
+		_putchar('-');
+		num = -num;
 		n = -n;
+		last = -last;
+		i++;
 	}
-	if (n / 10)
+	if (num > 0)
 	{
-		count += print_number(n / 10);
+		while (num / 10 != 0)
+		{
+			exp = exp * 10;
+			num = num / 10;
+		}
+		num = n;
+		while (exp > 0)
+		{
+			digit = num / exp;
+			_putchar(digit + '0');
+			num = num - (digit * exp);
+			exp = exp / 10;
+			i++;
+		}
 	}
-	_putchar(n % 10 + '0');
-	count++;
-	return (count);
+	_putchar(last + '0');
+
+	return (i);
 }
