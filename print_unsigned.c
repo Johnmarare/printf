@@ -32,7 +32,6 @@ int print_unsigned(unsigned int num)
 		num %= divisor;
 		divisor /= 10;
 	}
-
 	_putchar('\n');
 
 	return (0);

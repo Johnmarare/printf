@@ -19,4 +19,6 @@ int print_unsigned(unsigned int num);
 int print_octal(unsigned int n);
 int print_hex(unsigned int num);
 int print_HEX(unsigned int num);
+void print_string(char *str);
+void handle_S_conversion(char *str);
 #endif

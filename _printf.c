@@ -16,6 +16,7 @@ int _printf(const char *format, ...)
 	unsigned int o;
 	unsigned int x;
 	unsigned int X;
+	/*char *S;*/
 	va_list args;
 
 	va_start(args, format);
@@ -66,6 +67,9 @@ int _printf(const char *format, ...)
 					if (s == NULL)
 						return (-1);
 					count += _print_string(s);
+					break;
+				case 'S':
+					handle_S_conversion(va_arg(args, char *));
 					break;
 				case '%':
 					_putchar('%');
