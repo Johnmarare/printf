@@ -18,10 +18,15 @@ int _print_string(char *str)
 	{
 		return (-1);
 	}
-	len += _strlen(str);/*len += _strlen(str);*/
+	len = _strlen(str);/*len += _strlen(str);*/
 
 	for (i = 0; i < len; i++)
-		_putchar(str[i]);
+	{
+		if(_putchar(str[i]) == EOF)
+		{
+			return (-1);
+		}
+	}
 
 	return (len);
 }
