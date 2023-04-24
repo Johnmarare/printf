@@ -11,6 +11,7 @@ int _printf(const char *format, ...)
 	char *s;
 	int i, d;
 	int count = 0;
+	unsigned int b;
 	va_list args;
 
 	va_start(args, format);
@@ -32,11 +33,15 @@ int _printf(const char *format, ...)
 					d = va_arg(args, int);
 					count += print_number(d);
 					break;
-				case 'i':
+				case 'i':/*signed integer*/
 					i = va_arg(args, int);
 					count += print_number(i);
 					break;
-				case 's':
+				case 'b':/*integer to binary*/
+					b = va_arg(args, unsigned int);
+					count += _printbinary(b);
+					break;
+				case 's':/*string*/
 					s = va_arg(args, char *);
 					if (s == NULL)
 						return (-1);
