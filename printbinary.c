@@ -2,7 +2,7 @@
 #include <stdio.h>
 /**
  * _printbinary - prints binary of a num
- * @val: parameter
+ * @value: parameter
  * Return: Always 0
  */
 
@@ -13,13 +13,14 @@ int _printbinary(unsigned int value)
 	unsigned int quot;
 
 	if (value <= 0)
-	{/*program terminates*/
+	{
 		return (0);
 	}
-	mod = value % 2;/*gets the last digit*/
-	quot = value / 2;/*gets the first digit*/
+
+	mod = value % 2;
+	quot = value / 2;
 
 	count = _printbinary(quot);
-	printf("%d", mod);/*the value of mod is binary*/
+	_putchar(mod + '0');/*Use putchar instead of print*/
 	return (count + 1);
 }
