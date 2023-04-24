@@ -23,9 +23,3 @@ int _printbinary(unsigned int value)
 	printf("%d", mod);/*the value of mod is binary*/
 	return (count + 1);
 }
-
-int main(void)
-{
-    _printf("%b\n", 98);
-    return (0);
-}
