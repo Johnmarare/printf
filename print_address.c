@@ -4,7 +4,7 @@
  * @p: parameter
  * Return: number of characters printed
  */
-int _print_address(void *p)
+int printaddress(void *p)
 {
 	unsigned long int address = (unsigned long int) p;
 	int count = 0;
