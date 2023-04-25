@@ -19,7 +19,7 @@ int handle_S_conversion(char *str)
 			count += _putchar('\\');
 			count += _putchar('x');
 			if (str[i] < 16)
-				count += _putchar('0');
+				/*count += _putchar('0');*/
 			count += print_hex_upper(str[i]);
 
 		}
