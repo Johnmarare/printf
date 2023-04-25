@@ -8,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	char c;
-	char *s, *S;
+	char *s, *S, *r;
 	int i, j, d;
 	int count = 0;
 	unsigned int b, u, o, x, X;
@@ -76,6 +76,12 @@ int _printf(const char *format, ...)
 					if (p == NULL)
 						return (-1);
 					count += _print_address(p);
+					break;
+				case 'r':
+					r = va_arg(args, char *);
+					if (r == NULL)
+						return (-1);
+					count += str_rev(s);
 					break;
 				case '%':
 					_putchar('%');
