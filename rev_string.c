@@ -8,13 +8,20 @@
 int str_rev(char *s)
 {
 	int i;
-	int j = 0;
+	int length = 0;
 
 	if (s == NULL)
 		s = "(null)";
-	while (s[j] != '\0')
-		j++;
-	for (i = j - 1; i >= 0; i--)
+	for (i = 0; s[i] != '\0'; i++)
+
+		length++;
+
+	for (i = length - 1; i >= 0; i--)
+	{
 		_putchar(s[i]);
-	return (j);
+	}
+
+	_putchar('\n');
+
+	return (length);
 }
