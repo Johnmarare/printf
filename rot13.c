@@ -12,7 +12,7 @@ int print_rot13(char *s)
 	char a[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";/*input*/
 	char b[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";/*output*/
 
-	for (s == NULL)
+	if (s == NULL)
 		s = "(null)";
 	for (i = 0; s[i] != '\0'; i++)
 	{
@@ -20,8 +20,8 @@ int print_rot13(char *s)
 		{
 			if (a[j] == s[i])
 			{
-				_putchar(b[j])/*encodes it*/
-					count++;
+				_putchar(b[j]);
+				count++;
 				k = 1;
 			}
 		}
@@ -30,6 +30,7 @@ int print_rot13(char *s)
 			_putchar(s[i]);
 			count++;
 		}
-		return (count);
 	}
+	return (count);
+
 }
