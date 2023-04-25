@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * print_rot13 - print string in ROT13
- * @R:  parameter
+ * @s:  parameter
  * Return: count
  *
  */
@@ -9,20 +9,19 @@ int print_rot13(char *s)
 {
 	int i, j, count, k = 0;
 
-	char a[] = {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
-	char b[] = {"nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"};
+	char a[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";/*input*/
+	char b[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";/*output*/
 
-	if (s == NULL)
+	for (s == NULL)
 		s = "(null)";
-	for (i = 0; s[i]; i++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		k = 0;
-		for (j = 0; a[j] && !k; j++)
+		for (j = 0; j < 52; j++)/*26x 2 alphabets both upper and lower*/
 		{
-			if (s[i] == a[j])
+			if (a[j] == s[i])
 			{
-				_putchar(b[j]);
-				count++;
+				_putchar(b[j])/*encodes it*/
+					count++;
 				k = 1;
 			}
 		}
@@ -31,6 +30,6 @@ int print_rot13(char *s)
 			_putchar(s[i]);
 			count++;
 		}
+		return (count);
 	}
-	return (count);
 }
