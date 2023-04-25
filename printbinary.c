@@ -22,8 +22,3 @@ int _printbinary(unsigned int value)
 	_putchar(mod + '0');/*Use putchar instead of print*/
 	return (count + 1);
 }
-int main(void)
-{
-	_printf("%b\n", 98);
-	return (0);
-}
