@@ -5,7 +5,7 @@
  * @str: parameter
  * Return: void
  */
-void handle_S_conversion(char *str)
+int handle_S_conversion(char *str)
 {
 	int i = 0;
 
@@ -27,4 +27,5 @@ void handle_S_conversion(char *str)
 		i++;
 
 	}
+	return (*str);
 }

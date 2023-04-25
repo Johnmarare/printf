@@ -7,14 +7,14 @@
  */
 int print_hex_lower(unsigned int n)
 {
-        char hex_digits[] = "0123456789abcdef";
-        int count = 0;
+	char hex_digits[] = "0123456789abcdef";
+	int count = 0;
 
-        if (n / 16)
-                count += print_hex_lower(n / 16);
+	if (n / 16)
+		count += print_hex_lower(n / 16);
 
-        _putchar(hex_digits[n % 16]);
-        count++;
+	_putchar(hex_digits[n % 16]);
+	count++;
 
-        return (count);
+	return (count);
 }

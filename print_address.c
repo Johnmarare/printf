@@ -29,5 +29,5 @@ int _print_address(void *p)
 	_putchar('\n');
 	count++;
 
-	return count;
+	return (count);
 }

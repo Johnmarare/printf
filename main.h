@@ -20,5 +20,5 @@ int print_hex_lower(unsigned int n);
 int print_hex_upper(unsigned int n);
 void print_string(char *str);
 int _print_address(void *p);
-void handle_S_conversion(char *str);
+int handle_S_conversion(char *str);
 #endif

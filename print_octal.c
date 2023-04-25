@@ -26,7 +26,7 @@ int print_octal(unsigned int n)
 		i++;
 	}
 
-	for (j = i -1; j >= 0; j--)
+	for (j = i - 1; j >= 0; j--)
 	{
 		_putchar(octal[j]);
 		count++;
