@@ -18,7 +18,6 @@ int print_unsigned(unsigned int num);
 int print_octal(unsigned int n);
 int print_hex_lower(unsigned int n);
 int print_hex_upper(unsigned int n);
-int printaddress(void *p);
 int handle_S_conversion(char *str);
 int _print_hex(unsigned long int num);
 int str_rev(char *s);
