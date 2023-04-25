@@ -15,11 +15,11 @@ int _printbinary(unsigned int value)
 	{
 		return (0);
 	}
-	if (value == 0)
+	/*if (value == 0)
 	{
 		_putchar('0');
 		return (1);
-	}
+	}*/
 	if (value > 0x7FFFFFFF)
 	{
 		return (-1);
