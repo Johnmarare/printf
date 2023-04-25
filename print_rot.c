@@ -5,7 +5,7 @@
  * Return: returns number of characters passed
  */
 
-int print_rot(char *str)
+int print_rot13131313131313131313131313(char *str)
 {
 	int i;
 	int j;

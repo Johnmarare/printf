@@ -83,6 +83,12 @@ int _printf(const char *format, ...)
 						return (-1);
 					count += str_rev(r);
 					break;
+				case 'R':
+					R = va_arg(args, char *);
+					if (R == NULL)
+						return (-1);
+					count += print_rot13(R);
+					break;
 				case '%':
 					_putchar('%');
 					count++;
