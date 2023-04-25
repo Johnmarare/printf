@@ -9,8 +9,8 @@ int handle_S_conversion(char *str)
 {
 	int i = 0;
 	int len = 0;
+
 	len = _strlen(str);
-	
 	if (str == NULL)
 	{
 		str = "(NULL)";
