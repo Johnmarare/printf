@@ -1,44 +1,61 @@
 #include "main.h"
 /**
  * _print_address - printf address
- * @p: parameter
+ *@p: parameter
  * Return: number of characters printed
  */
 int _print_address(void *p)
 {
-	unsigned long int address = (unsigned long int) p;
-	int count = 0;
-	char hex[100];
-	int i = 0;
-	int rem;
-	int j;
+	char *s = "(nil)";
+	long int a;
+	int b;
+	int i;
 
-	count += _putchar('0');
-	count += _putchar('x');
-
-	if (address == 0)
+	if (p == NULL)
 	{
-		count += _putchar('0');
-		return (count);
+		for (i = 0; s[i] != '\0'; i++)
+		{
+			_putchar(s[i]);
+		}
+		return (i);
 	}
 
-	while (address != 0)
+	a = (unsigned long int)p;
+	_putchar('0');
+	_putchar('x');
+	b = _print_hex(a);
+	return (b + 2);
+}
+/**
+ * _print_hex- prints hexadecimal
+ * @num: input number to print
+ * Return: count
+ */
+int _print_hex(unsigned long int num)
+{
+	long int i;
+	long int *array;
+	long int counter = 0;
+	unsigned long int temp = num;
+
+	while (num / 16 != 0)
 	{
-		rem = address % 16;
-		if (rem < 10)
-			hex[i] = rem + '0';
-		else
-			hex[i] = rem - 10 + 'a';
-
-		address /= 16;
-		i++;
+		num /= 16;
+		counter++;
 	}
-
-	for (j = i - 1; j >= 0; j--)
+	counter++;
+	array = malloc(counter * sizeof(long int));
+	for (i = 0; i < counter; i++)
 	{
-		_putchar(hex[j]);
-		count++;
+		array[i] = temp % 16;
+		temp /= 16;
 	}
-
-	return (count);
+	for (i = counter - 1; i >= 0; i--)
+	{
+		if (array[i] > 9)
+			array[i] = array[i] + 39;
+		_putchar(array[i] + '0');
+	}
+	free(array);
+	return (counter);
 }
