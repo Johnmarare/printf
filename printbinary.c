@@ -7,18 +7,26 @@
  */
 int _printbinary(unsigned int value)
 {/*value is the number to be converted to binary*/
-	int count = 0;
-	unsigned int mod;
-	unsigned int quot;
+	int flag = 0;
+	int cont = 0;
+	int i;
+	unsigned int num;
+	unsigned int p;
 
-	if (value <= 0)
+	for (i = 31 ; i >= 0 ; i--)
 	{
-		return (0);
+		p = (num >> i) & 1;
+		if (p || flag)
+		{
+			flag = 1;
+			_putchar(p + '0');
+			cont++;
+		}
 	}
-	mod = value % 2;
-	quot = value / 2;
-
-	count = _printbinary(quot);
-	_putchar(mod + '0');/*Use putchar instead of print*/
-	return (count + 1);
+	if (cont == 0)
+	{
+		cont++;
+		_putchar('0');
+	}
+	return (cont);
 }
