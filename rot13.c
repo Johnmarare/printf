@@ -7,16 +7,18 @@
  */
 int print_rot13(char *s)
 {
-	int i, j, count, k = 0;
+	int i, j, count = 0;
+	int k = 0;
 
 	char a[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";/*input*/
 	char b[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";/*output*/
 
 	if (s == NULL)
 		s = "(null)";
-	for (i = 0; s[i] != '\0'; i++)
+	for (i = 0; s[i]; i++)
 	{
-		for (j = 0; j < 52; j++)/*26x 2 alphabets both upper and lower*/
+		k = 0;
+		for (j = 0; a[j] && !k; j++)/*26x 2 alphabets both upper and lower*/
 		{
 			if (a[j] == s[i])
 			{
