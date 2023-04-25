@@ -29,7 +29,7 @@ int _printf(const char *format, ...)
 			{
 				case 'c':/*as in character*/
 					c = (char)va_arg(args, int);
-					count += print_char(c);
+					count += _putchar(c);
 					break;
 				case 'd':/*as in decimal*/
 					d = va_arg(args, int);
