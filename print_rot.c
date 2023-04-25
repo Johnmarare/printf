@@ -17,18 +17,18 @@ int print_rot13(char *str)
 
 	if (str == NULL)
 		str = "(null)";
-	for (j = 0; a[j] && !k; j++)/*26x 2 alphabets both upper and lower*/
+	for (j = 0; rota[j] && !k; j++)/*26x 2 alphabets both upper and lower*/
 	{
-		if (a[j] == s[i])
+		if (rota[j] == str[i])
 		{
-			_putchar(b[j]);
+			_putchar(rotb[j]);
 			count++;
 			k = 1;
 		}
 	}
 	if (!k)
 	{
-		_putchar(s[i]);
+		_putchar(str[i]);
 		count++;
 	}
 	return (count);
