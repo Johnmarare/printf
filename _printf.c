@@ -81,7 +81,7 @@ int _printf(const char *format, ...)
 					r = va_arg(args, char *);
 					if (r == NULL)
 						return (-1);
-					count += str_rev(s);
+					count += str_rev(r);
 					break;
 				case '%':
 					_putchar('%');
