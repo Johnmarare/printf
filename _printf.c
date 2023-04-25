@@ -68,7 +68,7 @@ int _printf(const char *format, ...)
 					S = (va_arg(args, char *));
 					if (S == NULL)
 						return (-1);
-					count += handle_S_conversion(S);
+				 	count += handle_S_conversion(S);
 					break;
 					/*case 'p':
 

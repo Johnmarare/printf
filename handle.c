@@ -17,7 +17,8 @@ int handle_S_conversion(char *str)
 			_putchar('x');
 			if (str[i] < 16)
 				_putchar('0');
-			print_hex_upper(str[i]);
+			 print_hex_upper(str[i]);
+
 		}
 		else
 		{
@@ -25,7 +26,6 @@ int handle_S_conversion(char *str)
 
 		}
 		i++;
-
 	}
-	return (*str);
+	return (i);
 }
