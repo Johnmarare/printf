@@ -8,17 +8,30 @@
 int _printbinary(unsigned int value)
 {/*value is the number to be converted to binary*/
 	int count = 0;
-	unsigned int mod;
-	unsigned int quot;
+	int i;
+	int flag = 0;
+	unsigned int p;
 
-	if (value <= 0)
+	for (i = 31 ; i >= 0 ; i--)
 	{
-		return (0);
+		p = (value >> i) & 1;
+		if (p || flag)
+		{
+			flag = 1;
+			_putchar(p + '0');
+			count++;
+		}
 	}
-	mod = value % 2;
-	quot = value / 2;
+	if (count == 0)
+	{
+		count++;
+		_putchar('0');
+	}
+	return (count);
 
-	count = _printbinary(quot);
-	_putchar(mod + '0');/*Use putchar instead of print*/
-	return (count + 1);
+}
+int main(void)
+{
+	_printf("%b\n", 98);
+	return (0);
 }
