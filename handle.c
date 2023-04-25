@@ -8,7 +8,16 @@
 int handle_S_conversion(char *str)
 {
 	int i = 0;
-
+	int len = 0;
+	len = _strlen(str);
+	
+	if (str == NULL)
+	{
+		str = "(NULL)";
+	for (i = 0; i < len; i++)
+		_putchar(str[i]);
+			return (len);
+	}
 	while (str[i] != '\0')
 	{
 		if (str[i] < 32 || str[i] >= 127)
@@ -17,7 +26,7 @@ int handle_S_conversion(char *str)
 			_putchar('x');
 			if (str[i] < 16)
 				_putchar('0');
-			 print_hex_upper(str[i]);
+			print_hex_upper(str[i]);
 
 		}
 		else
@@ -27,5 +36,5 @@ int handle_S_conversion(char *str)
 		}
 		i++;
 	}
-	return (i);
+	return (len);
 }
