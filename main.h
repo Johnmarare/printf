@@ -12,7 +12,7 @@ int _putchar(char c);
 int print_char(char c);
 int _print_string(char *str);
 int _strlen(char *s);
-int _printbinary(unsigned int value);
+int _printbinary( unsigned int value);
 int print_unsigned(unsigned int num);
 int print_octal(unsigned int n);
 int print_hex(unsigned int num);

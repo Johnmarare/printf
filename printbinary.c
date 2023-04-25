@@ -15,10 +15,24 @@ int _printbinary(unsigned int value)
 	{
 		return (0);
 	}
+	if (value == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
+	if (value > 0x7FFFFFFF)
+	{
+		return (-1);
+	}
 	mod = value % 2;
 	quot = value / 2;
 
 	count = _printbinary(quot);
 	_putchar(mod + '0');/*Use putchar instead of print*/
 	return (count + 1);
+}
+int main(void)
+{
+	_printf("%b\n", 98);
+	return (0);
 }
