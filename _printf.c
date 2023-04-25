@@ -53,11 +53,11 @@ int _printf(const char *format, ...)
 					break;
 				case 'x':
 					x = va_arg(args, unsigned int);
-					count += print_hex(x);
+					count += print_hex_lower(x);
 					break;
 				case 'X':
 					X = va_arg(args, unsigned int);
-					count += print_HEX(X);
+					count += print_hex_upper(X);
 					break;
 				case 's':/*string*/
 					s = va_arg(args, char *);

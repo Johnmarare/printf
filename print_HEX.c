@@ -1,36 +1,20 @@
-#include<stdio.h>
 #include "main.h"
-#include<limits.h>
 /**
- * print_HEX - prints hexadecimal  of a number in uppercase
- * @n: parameter
- * Return: Always 0
+ * print_hex_upper - Prints a hexadecimal number in uppercase.
+ * @n: The number to be printed.
+ *
+ * Return: The number of characters printed.
  */
-int print_HEX(unsigned int n)
+int print_hex_upper(unsigned int n)
 {
-	char hex[100];
-	int i = 0;
-	int remainder;
-	int j;
+	char hex_digits[] = "0123456789ABCDEF";
+	int count = 0;
 
-	while (n != 0)
-	{
-		remainder = n % 16;
-		if (remainder < 10)
-			hex[i] = remainder + '0';
-		else
-			hex[i] = remainder - 10 + 'A';/*Use for uppercase*/
-		n /= 16;
-		i++;
-	}
+	if (n / 16)
+		count += print_hex_upper(n / 16);
 
-	if (i == 0)
-		_putchar('0');
-	else
-	{
-		for (j = i - 1; j >= 0; j--)
-			_putchar(hex[j]);
-	}
+	_putchar(hex_digits[n % 16]);
+	count++;
 
-	return (0);
+	return (count);
 }
