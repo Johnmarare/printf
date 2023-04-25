@@ -1,33 +1,35 @@
 #include "main.c"
 /**
- * print_rot - prints rot13
+ * print_rot13 - prints rot13
  * @str: string passed
  * Return: returns number of characters passed
  */
 
-int print_rot13131313131313131313131313(char *str)
+int print_rot13(char *str)
 {
 	int i;
 	int j;
-	int count = o;
-	char rota[] = {abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ};
-	char rotb[] = {nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM};
+	int k = 0;
+	int count = 0;
+	char rota[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char rotb[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
 
 	if (str == NULL)
-		s = "(null)";
-	for (i = 0; str[i] != '\0'; i++)
+		str = "(null)";
+	for (j = 0; a[j] && !k; j++)/*26x 2 alphabets both upper and lower*/
 	{
-		for (j = 0; j < 52; j++)
+		if (a[j] == s[i])
 		{
-			if (str[i] == rota[j])
-			{
-				str[i] = rotb[j];
-				count++;
-				break;
-			}
+			_putchar(b[j]);
+			count++;
+			k = 1;
 		}
+	}
+	if (!k)
+	{
+		_putchar(s[i]);
+		count++;
 	}
 	return (count);
 }
-

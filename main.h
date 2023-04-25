@@ -24,9 +24,6 @@ int _print_hex(unsigned long int num);
 int str_rev(char *s);
 int _print_hex(unsigned long int num);
 int _print_address(void *p);
-<<<<<<< HEAD
 int print_rot(char *str);
-=======
 int print_rot13(char *str);
->>>>>>> af85d475512e35ef27b201ef435d9275a757eb81
 #endif

@@ -8,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	char c;
-	char *s, *S, *r;
+	char *s, *S, *r, *R;
 	int i, j, d;
 	int count = 0;
 	unsigned int b, u, o, x, X;
