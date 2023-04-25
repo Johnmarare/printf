@@ -31,8 +31,3 @@ int handle_S_conversion(char *str)
 	}
 	return (count);
 }
-int main(void)
-{
-	_printf("%S\n", "Best\nSchool");
-	return (0);
-}
