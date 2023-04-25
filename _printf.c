@@ -73,6 +73,8 @@ int _printf(const char *format, ...)
 					break;
 				case 'p': 
 					p = va_arg(args, void *);
+					if (p == NULL)
+						return (-1);
 					count += _print_address(p);
 					break;
 				case '%':
