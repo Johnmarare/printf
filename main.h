@@ -1,5 +1,6 @@
 #ifndef MAIN_Hi
 #define MAIN_H
+
 #include<stdlib.h>
 #include<stdarg.h>
 #include<unistd.h>
@@ -24,4 +25,5 @@ int _print_hex(unsigned long int num);
 int str_rev(char *s);
 int _print_hex(unsigned long int num);
 int _print_address(void *p);
+
 #endif

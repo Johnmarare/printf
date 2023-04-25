@@ -1,5 +1,4 @@
 #include "main.h"
-#include<stdlib.h>
 /**
  * _printf - printf function
  * @format: list of arguments
@@ -100,7 +99,6 @@ int _printf(const char *format, ...)
 		}
 		j++;
 	}
-	/*_print_string(format);*/
 	va_end(args);
 	return (count);
 }
