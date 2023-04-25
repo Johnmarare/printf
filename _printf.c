@@ -1,4 +1,5 @@
 #include "main.h"
+#include<stdlib.h>
 /**
  * _printf - printf function
  * @format: list of arguments
@@ -74,7 +75,7 @@ int _printf(const char *format, ...)
 					p = va_arg(args, void *);
 					if (p == NULL)
 						return (-1);
-					count += _print_address(p);
+					count += printaddress(p);
 					break;
 				case 'r':
 					r = va_arg(args, char *);
@@ -105,6 +106,7 @@ int _printf(const char *format, ...)
 		}
 		j++;
 	}
+	/*_print_string(format);*/
 	va_end(args);
 	return (count);
 }
