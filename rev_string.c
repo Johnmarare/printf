@@ -12,16 +12,10 @@ int str_rev(char *s)
 
 	if (s == NULL)
 		s = "(null)";
-	for (i = 0; s[i] != '\0'; i++)
 
+	while (s[length] != '\0')
 		length++;
-
 	for (i = length - 1; i >= 0; i--)
-	{
 		_putchar(s[i]);
-	}
-
-	_putchar('\n');
-
 	return (length);
 }
