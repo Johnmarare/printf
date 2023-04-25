@@ -8,33 +8,26 @@
 int handle_S_conversion(char *str)
 {
 	int i = 0;
-	int len = 0;
+	int count = 0;
 
-	len = _strlen(str);
 	if (str == NULL)
-	{
-		str = "(NULL)";
-	for (i = 0; i < len; i++)
-		_putchar(str[i]);
-			return (len);
-	}
-	while (str[i] != '\0')
+		str = "(null)";
+	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (str[i] < 32 || str[i] >= 127)
 		{
-			_putchar('\\');
-			_putchar('x');
+			count += _putchar('\\');
+			count += _putchar('x');
 			if (str[i] < 16)
-				_putchar('0');
-			print_hex_upper(str[i]);
+				count += _putchar('0');
+			count += print_hex_upper(str[i]);
 
 		}
 		else
 		{
-			_putchar(str[i]);
+			count += _putchar(str[i]);
 
 		}
-		i++;
 	}
-	return (len);
+	return (count);
 }
