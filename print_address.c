@@ -1,21 +1,61 @@
 #include "main.h"
 /**
- *_print_address - prints address
- * @p: parameter
+ * _print_address - printf address
+ *@p: parameter
  * Return: number of characters printed
  */
 int _print_address(void *p)
 {
-
-	unsigned long int address = (unsigned long int) p;
-	int count = 0;
+	char *s = "(nil)";
+	long int a;
+	int b;
+	int i;
 
 	if (p == NULL)
-		p = "(null)";
+	{
+		for (i = 0; s[i] != '\0'; i++)
+		{
+			_putchar(s[i]);
+		}
+		return (i);
+	}
 
-	count += _putchar('0');
-	count += _putchar('x');
-	count += print_hex_lower(address);
+	a = (unsigned long int)p;
+	_putchar('0');
+	_putchar('x');
+	b = _print_hex(a);
+	return (b + 2);
+}
+/**
+ * _print_hex- prints hexadecimal
+ * @num: input number to print
+ * Return: count
+ */
+int _print_hex(unsigned long int num)
+{
+	long int i;
+	long int *array;
+	long int counter = 0;
+	unsigned long int temp = num;
 
-	return (count);
+	while (num / 16 != 0)
+	{
+		num /= 16;
+		counter++;
+	}
+	counter++;
+	array = malloc(counter * sizeof(long int));
+	for (i = 0; i < counter; i++)
+	{
+		array[i] = temp % 16;
+		temp /= 16;
+	}
+	for (i = counter - 1; i >= 0; i--)
+	{
+		if (array[i] > 9)
+			array[i] = array[i] + 39;
+		_putchar(array[i] + '0');
+	}
+	free(array);
+	return (counter);
 }
