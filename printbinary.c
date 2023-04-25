@@ -20,10 +20,10 @@ int _printbinary(unsigned int value)
 		_putchar('0');
 		return (1);
 	}*/
-	if (value > 0x7FFFFFFF)
+	/*if (value > 0x7FFFFFFF)
 	{
 		return (-1);
-	}
+	}*/
 	mod = value % 2;
 	quot = value / 2;
 
