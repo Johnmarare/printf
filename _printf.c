@@ -66,13 +66,15 @@ int _printf(const char *format, ...)
 					break;
 				case 'S':
 					S = va_arg(args, char *);
+					if (S == NULL)
+						return (-1);
 					count += handle_S_conversion(S);
 					break;
-				/*case 'p': 
+					/*case 'p': 
 
-					p = va_arg(args, unsigned int);
-					count += _print_address(p);
-					break;*/
+					  p = va_arg(args, unsigned int);
+					  count += _print_address(p);
+					  break;*/
 				case '%':
 					_putchar('%');
 					count++;
