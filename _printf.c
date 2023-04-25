@@ -17,7 +17,7 @@ int _printf(const char *format, ...)
 
 	j = 0;
 	va_start(args, format);
-	if (format == NULL || format[j] == '\0') 
+	if (format == NULL || format[j] == '\0')
 		return (-1);
 	while (format[j] != '\0')
 	{
@@ -71,7 +71,7 @@ int _printf(const char *format, ...)
 						S = "(null)";
 					count += handle_S_conversion(S);
 					break;
-				case 'p': 
+				case 'p':
 					p = va_arg(args, void *);
 					if (p == NULL)
 						return (-1);
