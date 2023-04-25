@@ -15,6 +15,10 @@ int _printbinary(unsigned int value)
 	{
 		return (0);
 	}
+	else if (value > 0x7FFFFFFF)
+	{
+		return (-1);
+	}
 	mod = value % 2;
 	quot = value / 2;
 
