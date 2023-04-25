@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 	int count = 0;
 	unsigned int b, u, o, x, X;
 	va_list args;
+	void *p;
 
 	j = 0;
 	va_start(args, format);
@@ -70,11 +71,10 @@ int _printf(const char *format, ...)
 						S = "(null)";
 					count += handle_S_conversion(S);
 					break;
-					/*case 'p': 
-
-					  p = va_arg(args, unsigned int);
-					  count += _print_address(p);
-					  break;*/
+				case 'p': 
+					p = va_arg(args, void *);
+					count += _print_address(p);
+					break;
 				case '%':
 					_putchar('%');
 					count++;

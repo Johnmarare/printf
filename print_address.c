@@ -6,28 +6,39 @@
  */
 int _print_address(void *p)
 {
-	char hex_digits[] = "0123456789abcdef";
-	char hex[32];
-	unsigned long int n = (unsigned long int)p;
-	int i, count = 0;
+	unsigned long int address = (unsigned long int) p;
+	int count = 0;
+	char hex[100];
+	int i = 0;
+	int rem;
+	int j;
 
-	for (i = 0; n != 0; i++)
+	count += _putchar('0');
+	count += _putchar('x');
+
+	if (address == 0)
 	{
-		hex[i] = hex_digits[n % 16];
-		n /= 16;
+		count += _putchar('0');
+		return (count);
 	}
 
-	_putchar('0');
-	_putchar('x');
-
-	for (i = i - 1; i >= 0; i--)
+	while (address != 0)
 	{
-		_putchar(hex[i]);
+		rem = address % 16;
+		if (rem < 10)
+			hex[i] = rem + '0';
+		else
+			hex[i] = rem - 10 + 'a';
+
+		address /= 16;
+		i++;
+	}
+
+	for (j = i - 1; j >= 0; j--)
+	{
+		_putchar(hex[j]);
 		count++;
 	}
-
-	_putchar('\n');
-	count++;
 
 	return (count);
 }
