@@ -1,10 +1,10 @@
 #include "main.h"
 /**
- * _print_address - printf address
- *@p: parameter
+ *_print_address - printf address
+ * @p: parameter
  * Return: number of characters printed
  */
-int printaddress(void *p)
+int _print_address(void *p)
 {
 	char *s = "(nil)";
 	long int a;
