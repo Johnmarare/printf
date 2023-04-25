@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 
 	j = 0;
 	va_start(args, format);
-	if (format == NULL || format[j] == '\0')
+	if (format == NULL || format[j] == '\0') 
 		return (-1);
 	while (format[j] != '\0')
 	{
@@ -65,12 +65,12 @@ int _printf(const char *format, ...)
 					count += _print_string(s);
 					break;
 				case 'S':
-					S = (va_arg(args, char *));
+					S = va_arg(args, char *);
 					if (S == NULL)
-						return (-1);
-				 	count += handle_S_conversion(S);
+						S = "(null)";
+					count += handle_S_conversion(S);
 					break;
-					/*case 'p':
+					/*case 'p': 
 
 					  p = va_arg(args, unsigned int);
 					  count += _print_address(p);
