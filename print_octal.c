@@ -8,26 +8,29 @@
  */
 int print_octal(unsigned int n)
 {
-	unsigned int temp = n;
 	int count = 0;
-	char octal_digits[100];
+	char octal[100];
 	int i = 0;
 	int j;
 
-	/*Convert decimal to octal using bitwise operations*/
-	while (temp != 0)
+	if (n == 0)
 	{
-		octal_digits[i] = (temp % 8) + '0';
-		temp /= 8;
+		_putchar('0');
+		return (1);
+	}
+
+	while (n != 0)
+	{
+		octal[i] = (n % 8) + '0';
+		n /= 8;
 		i++;
 	}
 
-	/*Print the octal digits in reverse order*/
-	for (j = i - 1; j >= 0; j--)
+	for (j = i -1; j >= 0; j--)
 	{
-		_putchar(octal_digits[j]);
+		_putchar(octal[j]);
 		count++;
 	}
 
-	return count;
+	return (count);
 }
