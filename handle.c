@@ -9,6 +9,7 @@ int handle_S_conversion(char *str)
 {
 	int i = 0;
 	int count = 0;
+	char hex[3] = {0};
 
 	if (str == NULL)
 		str = "(null)";
@@ -16,12 +17,14 @@ int handle_S_conversion(char *str)
 	{
 		if (str[i] < 32 || str[i] >= 127)
 		{
-			count += _putchar('\\');
-			count += _putchar('x');
-			if (str[i] < 16)
-				count += _putchar('0');
-			count += print_hex_upper(str[i]);
-
+			hex[0] = '\\';
+			hex[1] = 'x';
+			hex[2] = "0123456789ABCDEF"[((unsigned char) str[i]) >> 4];
+			count += _putchar(hex[0]);
+			count += _putchar(hex[1]);
+			count += _putchar(hex[2]);
+			hex[2] = "0123456789ABCDEF"[((unsigned char) str[i]) & 0xF];
+			count += _putchar(hex[2]);
 		}
 		else
 		{
@@ -29,5 +32,6 @@ int handle_S_conversion(char *str)
 
 		}
 	}
+
 	return (count);
 }
