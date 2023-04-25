@@ -8,7 +8,7 @@
 int _printf(const char *format, ...)
 {
 	char c;
-	char *s;
+	char *s, *S;
 	int i, j, d;
 	int count = 0;
 	unsigned int b, u, o, x, X;
@@ -65,7 +65,8 @@ int _printf(const char *format, ...)
 					count += _print_string(s);
 					break;
 				case 'S':
-					handle_S_conversion(va_arg(args, char *));
+					S = va_arg(args, char *);
+					count += handle_S_conversion(S);
 					break;
 				/*case 'p': 
 
