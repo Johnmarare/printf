@@ -8,21 +8,7 @@
 int handle_S_conversion(char *str)
 {
 	int i = 0;
-<<<<<<< HEAD
-	int len = 0;
-
-	len = _strlen(str);
-
-	if (str == NULL)
-	{
-		str = "(null)";
-		for (i = 0; i < len; i++)
-			_putchar(str[i]);
-		return (len);
-	}
-=======
 	int count = 0;
->>>>>>> 66ebac15df264a135105d0eb6b61cde5c4337280
 
 	if (str == NULL)
 		str = "(null)";
@@ -33,13 +19,8 @@ int handle_S_conversion(char *str)
 			count += _putchar('\\');
 			count += _putchar('x');
 			if (str[i] < 16)
-<<<<<<< HEAD
-				_putchar('0');
-			print_hex_upper(str[i]);
-=======
 				count += _putchar('0');
 			count += print_hex_upper(str[i]);
->>>>>>> 66ebac15df264a135105d0eb6b61cde5c4337280
 
 		}
 		else
@@ -48,9 +29,5 @@ int handle_S_conversion(char *str)
 
 		}
 	}
-<<<<<<< HEAD
-	return (len);
-=======
 	return (count);
->>>>>>> 66ebac15df264a135105d0eb6b61cde5c4337280
 }
