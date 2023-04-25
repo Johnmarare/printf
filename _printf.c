@@ -7,7 +7,7 @@
 int _printf(const char *format, ...)
 {
 	char c;
-	char *s, *S, *r;
+	char *s, *S, *r, *R;
 	int i, j, d;
 	int count = 0;
 	unsigned int b, u, o, x, X;
@@ -81,6 +81,12 @@ int _printf(const char *format, ...)
 					if (r == NULL)
 						return (-1);
 					count += str_rev(r);
+					break;
+				case 'R':
+					R = va_arg(args, char *);
+					if (R == NULL)
+						return (-1);
+					count += print_rot13(R);
 					break;
 				case '%':
 					_putchar('%');
