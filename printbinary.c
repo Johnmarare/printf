@@ -30,8 +30,3 @@ int _printbinary(unsigned int value)
 	return (count);
 
 }
-int main(void)
-{
-	_printf("%b\n", 98);
-	return (0);
-}
