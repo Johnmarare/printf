@@ -1,10 +1,10 @@
-#include"main.h"
+#include "main.h"
+#include <stdio.h>
 /**
- * handle_S_conversion - Helper function to handle %S conversion specifier
- *
- * @str: The string to be printed
+ * handle_S_conversion - handles conversion
+ * @str: parameter
+ * Return: void
  */
-
 void handle_S_conversion(char *str)
 {
 	int i = 0;
@@ -17,13 +17,14 @@ void handle_S_conversion(char *str)
 			_putchar('x');
 			if (str[i] < 16)
 				_putchar('0');
-			printf("%X", str[i]);
+			print_hex_upper(str[i]);
 		}
 		else
 		{
 			_putchar(str[i]);
-		}
 
+		}
 		i++;
+
 	}
 }
