@@ -1,42 +1,51 @@
 #include"main.h"
+#include<math.h>
 /**
  * print_unsigned - prints unsigned integer
  * @num: parameter
  * Return: Always 0
  */
-/*UINT is maximum value of unsigned int, u can use 4294967295 but with bool*/
-int print_unsigned(unsigned int num)
+int print_unsigned(unsigned int n)
 {
-	unsigned int divisor;
-	int digit;
+	int count = 0;
+	unsigned int num = 0;
+	int digit_count;
+	unsigned int div;
+	unsigned int digit;
+	int i;
 
-	if (num > UINT_MAX)
+	if (n == 0)
 	{
-		_putchar('E');
-		_putchar('r');
-		_putchar('r');
-		_putchar('o');
-		_putchar('r');
-		_putchar('\n');
-		return (-1);
+		_putchar('0');
+		count++;
+	}
+	else
+	{
+		num = n;
+		digit_count = 0;
+
+		while (num > 0)
+		{
+			num /= 10;
+			digit_count++;
+		}
+
+		num = n;
+
+		while (digit_count > 0)
+		{
+			digit_count--;
+			div = 1;
+
+			for (i = 1; i <= digit_count; i++)
+				div *= 10;
+
+			digit = num / div;
+			_putchar(digit + '0');
+			count++;
+			num -= digit * div;
+		}
 	}
 
-	divisor = 1;
-	while (num / divisor >= 10)
-		divisor *= 10;
-
-	while (divisor != 0)
-	{
-		digit = num / divisor;
-		_putchar(digit + '0');
-		num %= divisor;
-		divisor /= 10;
-	}
-	_putchar('\n');
-
-	return (0);
+	return (count);
 }
-/*If num is within the valid range, the function then calculates the largest*/
-/*power of 10 that is less than or equal to num*/
-/*This power of 10 is used to extract each digit of num and print it out*/
-/*The function continues extracting digits until all digits have been printed*/
