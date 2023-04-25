@@ -1,24 +1,25 @@
 #include "main.h"
 /**
- * rot13 -  encodes a string using rot13.
- *@str: function parameter
- * Return: Always 0.
+ * print_rot13 - print string in ROT13
+ * @R:  parameter
+ * Return: count
+ *
  */
-int print_rot13(char *str)
+int print_rot13(char *s)
 {
-	int i, k, j, count = 0;
+	int i, j, count, k = 0;
 
-	char a[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";/*input*/
-	char b[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";/*output*/
+	char a[] = {"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"};
+	char b[] = {"nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"};
 
-	if (str == NULL)
-		str = "(null)";
-
-	for (i = 0; str[i] != '\0'; i++)
+	if (s == NULL)
+		s = "(null)";
+	for (i = 0; s[i]; i++)
 	{
-		for (j = 0; j < 52; j++)/*26x 2 alphabets both upper and lower*/
+		k = 0;
+		for (j = 0; a[j] && !k; j++)
 		{
-			if (a[j] == str[i])
+			if (s[i] == a[j])
 			{
 				_putchar(b[j]);
 				count++;
@@ -27,7 +28,7 @@ int print_rot13(char *str)
 		}
 		if (!k)
 		{
-			_putchar(str[i]);
+			_putchar(s[i]);
 			count++;
 		}
 	}
