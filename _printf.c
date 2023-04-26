@@ -35,6 +35,7 @@ int _printf(const char *format, ...)
 				case 'd':/*as in decimal*/
 					d = va_arg(args, int);
 					count += print_number(d);
+					count += handle_d_conversion(n, left_align);
 					break;
 				case 'i':/*signed integer*/
 					i = va_arg(args, int);
