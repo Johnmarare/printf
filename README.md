@@ -8,5 +8,9 @@ Handles different conversion specifiers:
 . s - prints a string. i.e. _printf("%s", "Hello World!");
 . % - prints a percent. i.e _printf("20%%");
 . d - prints intrgers. i.e _printf("%d", 20);
-. i - prints integers. i.e _printf("%i", 1234567890);
+. i - prints signed integers. i.e _printf("%i", 1234567890);
 . b - the unsigned int argument is converted to binary
+. u - prints unsigned integers
+. o - prints octal
+. x - prints hexadecimal lowercase
+. X - prints hexadecimal uppercase
