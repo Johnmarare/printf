@@ -1,3 +1,4 @@
-This is a printf project collaboration of Mr. John Marare Musumba and Miss Sumaya Somo
+	Custom printf
 
-On this project we will be working on the ALX printf course.
+Name: _printf
+
