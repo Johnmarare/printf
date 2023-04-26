@@ -3,15 +3,16 @@
 #include<limits.h>
 /**
  * print_octal- prints octal of a number
- * @n: parameter
+ * @args: parameter
  * Return: Always 0
  */
-int print_octal(unsigned int n)
+int print_octal(va_list args)
 {
 	int count = 0;
 	char octal[100];
 	int i = 0;
 	int j;
+	unsigned int n = va_arg(args, unsigned int);
 
 	if (n == 0)
 	{

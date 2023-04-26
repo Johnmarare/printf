@@ -1,17 +1,19 @@
 #include "main.h"
 /**
  * print_rot13 - print string in ROT13
- * @s:  parameter
+ * @args:  parameter
  * Return: count
  *
  */
-int print_rot13(char *s)
+int print_rot13(va_list args)
 {
 	int i, j, count = 0;
 	int k = 0;
-
+	char *s;
 	char a[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";/*input*/
 	char b[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";/*output*/
+
+	s = va_arg(args, char *);
 
 	if (s == NULL)
 		s = "(null)";

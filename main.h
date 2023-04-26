@@ -7,21 +7,36 @@
 #include<stdbool.h>
 #include<limits.h>
 #include<math.h>
+
+/**
+ * struct format - match the conversion specifiers for printf
+ * @id: type char pointer of the specifier i.e (l, h) for (d, i, u, o, x, X)
+ * @f: type pointer to function for the conversion specifier
+ *
+ */
+typedef struct format
+{
+	char *op;
+	int (*f)();
+} found_match;
+
+
 int _printf(const char *format, ...);
-int print_number(int n);
+int print_number(va_list args);
 int _putchar(char c);
-int print_char(char c);
-int _print_string(char *str);
+int print_char(va_list args);
+int _print_string(va_list args);
 int _strlen(char *s);
-int _printbinary( unsigned int value);
-int print_unsigned(unsigned int num);
-int print_octal(unsigned int n);
-int print_hex_lower(unsigned int n);
-int print_hex_upper(unsigned int n);
-int handle_S_conversion(char *str);
+int _printbinary(va_list args);
+int print_unsigned(va_list args);
+int print_octal(va_list args);
+int print_hex_lower(va_list args);
+int print_hex_upper(va_list args);
+int handle_S_conversion(va_list args);
 int _print_hex(unsigned long int num);
-int str_rev(char *s);
+int str_rev(va_list args);
 int _print_hex(unsigned long int num);
-int _print_address(void *p);
-int print_rot13(char *str);
+int _print_address(va_list args);
+int print_rot13(va_list args);
+int print_percent(void);
 #endif

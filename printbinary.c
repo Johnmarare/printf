@@ -2,15 +2,16 @@
 #include <stdio.h>
 /**
  * _printbinary - prints binary of a num
- * @value: parameter
+ * @args: parameter
  * Return: Always 0
  */
-int _printbinary(unsigned int value)
-{/*value is the number to be converted to binary*/
+int _printbinary(va_list args)
+{
 	int count = 0;
 	int i;
 	int flag = 0;
 	unsigned int p;
+	unsigned int value = va_arg(args, unsigned int);
 
 	for (i = 31 ; i >= 0 ; i--)
 	{

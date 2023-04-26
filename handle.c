@@ -2,15 +2,17 @@
 #include <stdio.h>
 /**
  * handle_S_conversion - handles conversion
- * @str: parameter
+ * @args: parameter
  * Return: void
  */
-int handle_S_conversion(char *str)
+int handle_S_conversion(va_list args)
 {
 	int i = 0;
 	int count = 0;
 	char hex[3] = {0};
+	char *str;
 
+	str = va_arg(args, char *);
 	if (str == NULL)
 		str = "(null)";
 	for (i = 0; str[i] != '\0'; i++)

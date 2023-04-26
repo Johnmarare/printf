@@ -1,20 +1,39 @@
 #include "main.h"
 /**
  * print_hex_lower - Prints a hexadecimal number in lowercase.
- * @n: The number to be printed.
+ * @args: The number to be printed.
  *
  * Return: The number of characters printed.
  */
-int print_hex_lower(unsigned int n)
+int print_hex_lower(va_list args)
 {
-	char hex_digits[] = "0123456789abcdef";
+	int i;
 	int count = 0;
+	unsigned int n;
+	int *arr;
+	unsigned int temp;
 
-	if (n / 16)
-		count += print_hex_lower(n / 16);
-
-	_putchar(hex_digits[n % 16]);
+	n = va_arg(args, unsigned int);
+	temp = n;
+	while (n / 16 != 0)
+	{
+		n /= 16;
+		count++;
+	}
 	count++;
+	arr = malloc(count * sizeof(int));
 
+	for (i = 0; i < count; i++)
+	{
+		arr[i] = temp % 16;
+		temp /= 16;
+	}
+	for (i = count - 1; i >= 0; i--)
+	{
+		if (arr[i] > 9)
+			arr[i] = arr[i] + 39;
+		_putchar(arr[i] + '0');
+	}
+	free(arr);
 	return (count);
 }

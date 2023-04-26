@@ -2,15 +2,18 @@
 #include<math.h>
 /**
  * print_unsigned - prints unsigned integer
- * @n: parameter
+ * @args: parameter
  * Return: Always 0
  */
-int print_unsigned(unsigned int n)
+int print_unsigned(va_list args)
 {
 	int count = 0;
 	unsigned int num = 0;
 	int digit_count, i;
 	unsigned int digit, div;
+	unsigned int n;
+
+	n = va_arg(args, unsigned int);
 
 	if (n == 0)
 	{

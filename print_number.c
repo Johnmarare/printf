@@ -1,17 +1,20 @@
 #include "main.h"
 /**
  * print_number - prints number
- * @n: input
+ * @args: input
  * Return: void.
  */
-int print_number(int n)
+int print_number(va_list args)
 {
+	int n;
 	int num;
-	int last = n % 10;
+	int last;
 	int digit;
 	int  i = 1;
 	int exp = 1;
 
+	n = va_arg(args, int);
+	last = n % 10;
 	n = n / 10;
 	num = n;
 

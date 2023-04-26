@@ -7,106 +7,42 @@
  */
 int _printf(const char *format, ...)
 {
-	char c;
-	char *s, *S, *r, *R;
-	int i, j, d;
-	int count = 0;
-	unsigned int b, u, o, x, X;
+	found_match member[] = {
+		{"%s", _print_string}, {"%c", print_char}, {"%%", print_percent},
+		{"%i", print_number}, {"%d", print_number}, {"%b", _printbinary},
+		{"%u", print_unsigned}, {"%o", print_octal}, {"%x", print_hex_lower},
+		{"%X", print_hex_upper}, {"%S", handle_S_conversion}, {"%p", _print_address},
+		{"%r", str_rev}, {"%R", print_rot13}
+	};
 	va_list args;
-	void *p;
+	int i = 0, j, count = 0, match = 0;
 
-	j = 0;
 	va_start(args, format);
-	if (format == NULL || format[j] == '\0')
+
+	if ((format == NULL) || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-	while (format[j] != '\0')
+	while (format[i] != '\0')
 	{
-
-		if (format[j] == '%')/*before specifier percent*/
+		match = 0;
+		j = 13;
+		while (j >= 0)
 		{
-			j++;
-			switch (format[j])
+			if (member[j].op[0] == format[i] && member[j].op[1] == format[i + 1])
 			{
-				case 'c':/*as in character*/
-					c = (char)va_arg(args, int);
-					count += print_char(c);
-					break;
-				case 'd':/*as in decimal*/
-					d = va_arg(args, int);
-					count += print_number(d);
-					break;
-				case 'i':/*signed integer*/
-					i = va_arg(args, int);
-					count += print_number(i);
-					break;
-				case 'b':/*integer to binary*/
-					b = va_arg(args, unsigned int);
-					count += _printbinary(b);
-					break;
-				case 'u':
-					u = va_arg(args, unsigned int);
-					count += print_unsigned(u);
-					break;
-				case 'o':
-					o = va_arg(args, unsigned int);
-					count += print_octal(o);
-					break;
-				case 'x':
-					x = va_arg(args, unsigned int);
-					count += print_hex_lower(x);
-					break;
-				case 'X':
-					X = va_arg(args, unsigned int);
-					count += print_hex_upper(X);
-					break;
-				case 's':/*string*/
-					s = va_arg(args, char *);
-					if (s == NULL)
-						return (-1);
-					count += _print_string(s);
-					break;
-				case 'S':
-					S = va_arg(args, char *);
-					if (S == NULL)
-						S = "(null)";
-					count += handle_S_conversion(S);
-					break;
-				case 'p':
-					p = va_arg(args, void *);
-					if (p == NULL)
-						return (-1);
-					count += _print_address(p);
-					break;
-				case 'r':
-					r = va_arg(args, char *);
-					if (r == NULL)
-						return (-1);
-					count += str_rev(r);
-					break;
-				case 'R':
-					R = va_arg(args, char *);
-					if (R == NULL)
-						return (-1);
-					count += print_rot13(R);
-					break;
-				case '%':
-					_putchar('%');
-					count++;
-					break;
-				default:
-					count += _putchar('%');
-					count += _putchar(format[j]);
-					break;
-
+				count += member[j].f(args);
+				i = i + 2;
+				match = 1;
+				break;
 			}
+			j--;
 		}
-		else
+		if (!match)
 		{
-			count += _putchar(format[j]);
+			_putchar(format[i]);
+			count++;
+			i++;
 		}
-		j++;
 	}
-	/*_print_string(format);*/
 	va_end(args);
 	return (count);
 }

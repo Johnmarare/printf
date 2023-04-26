@@ -1,16 +1,18 @@
 #include "main.h"
 /**
  * _print_address - printf address
- *@p: parameter
+ *@args: parameter
  * Return: number of characters printed
  */
-int _print_address(void *p)
+int _print_address(va_list args)
 {
+	void *p;
 	char *s = "(nil)";
 	long int a;
 	int b;
 	int i;
 
+	p = va_arg(args, void *);
 	if (p == NULL)
 	{
 		for (i = 0; s[i] != '\0'; i++)

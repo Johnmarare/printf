@@ -4,26 +4,28 @@
 #include "main.h"
 /**
  * _print_string - prints a string
- * @str: string to print
+ * @args: string to print
+ *
  * Return: number of characters printed
  */
-int _print_string(char *str)
+int _print_string(va_list args)
 {
+	char *str;
 	int i;
 	int len = 0;
 
+	str = va_arg(args, char *);
 	if (str == NULL)
 	{
 		str = "(null)";
 		len = _strlen(str);
 		for (i = 0; i < len; i++)
 			_putchar(str[i]);
-			/*_putchar("(null)"[i]);*/
 		return (len);
 	}
 	else
 	{
-		len = _strlen(str);
+		len = _strlen(str);/*len += _strlen(str);*/
 
 		for (i = 0; i < len; i++)
 			_putchar(str[i]);
