@@ -5,7 +5,6 @@
 /**
  * _print_string - prints a string
  * @str: string to print
- *
  * Return: number of characters printed
  */
 int _print_string(char *str)
@@ -19,11 +18,12 @@ int _print_string(char *str)
 		len = _strlen(str);
 		for (i = 0; i < len; i++)
 			_putchar(str[i]);
+			/*_putchar("(null)"[i]);*/
 		return (len);
 	}
 	else
 	{
-		len = _strlen(str);/*len += _strlen(str);*/
+		len = _strlen(str);
 
 		for (i = 0; i < len; i++)
 			_putchar(str[i]);
