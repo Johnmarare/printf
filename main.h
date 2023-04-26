@@ -35,7 +35,6 @@ int print_hex_upper(va_list args);
 int handle_S_conversion(va_list args);
 int _print_hex(unsigned long int num);
 int str_rev(va_list args);
-int _print_hex(unsigned long int num);
 int _print_address(va_list args);
 int print_rot13(va_list args);
 int print_percent(void);
