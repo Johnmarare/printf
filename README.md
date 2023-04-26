@@ -7,6 +7,8 @@ Secrets of “printf” by Professor Don Colton.
 
 	Prototype: int _printf(const char *format, ...);
 
+This prototype is an implementation of the printf standard function and variadic function 
+
 The real power of printf is when we are printing the contents of variables - 
 Professor Don Colton
 
