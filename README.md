@@ -16,4 +16,4 @@ Handles different conversion specifiers:
 . X - prints hexadecimal uppercase
 . R - print a string encoded in rot13 format
 . S - custom conversion specifier, prints string
-
+. r - prints the reversed string
