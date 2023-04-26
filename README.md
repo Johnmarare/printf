@@ -16,6 +16,12 @@ Professor Don Colton
 
 In the most simple case, printf takes one argument:a string of characters to be printed. This string iscomposed of characters, each of which is printed ex-actly as it appears.- Secrets of "printf"
 
+		Description.
+
+The function _printf writes output to standard output. The function writes under the control of a format string that specifies how subsequent arguments (accessed via the variable-length argument facilities of stdarg) are converted for output
+
+		Return:
+Upon success,
 Handles different conversion specifiers:
 . c - prints a character. i.e _printf("%c", 'A');
 . s - prints a string. i.e. _printf("%s", "Hello World!");
