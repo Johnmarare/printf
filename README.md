@@ -3,3 +3,7 @@
 Name: _printf
 
 Prototype: int _printf(const char *format, ...);
+Handles different conversion specifiers:
+. c
+. s
+. %
