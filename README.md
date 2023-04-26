@@ -15,3 +15,5 @@ Handles different conversion specifiers:
 . x - prints hexadecimal lowercase
 . X - prints hexadecimal uppercase
 . R - print a string encoded in rot13 format
+. S - custom conversion specifier, prints string
+
