@@ -2,7 +2,8 @@
 
 		Name: _printf
 What is printf? printf is the C language function to do format-ted printing.
-		The same function is also available in PERL.
+		The same function is also available in PERL.-  
+Secrets of “printf” by Professor Don Colton.
 
 	Prototype: int _printf(const char *format, ...);
 
