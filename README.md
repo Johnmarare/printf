@@ -12,6 +12,10 @@ This prototype is an implementation of the printf standard function and variadic
 The real power of printf is when we are printing the contents of variables - 
 Professor Don Colton
 
+ how does printf works?
+
+In the most simple case, printf takes one argument:a string of characters to be printed. This string iscomposed of characters, each of which is printed ex-actly as it appears.- Secrets of "printf"
+
 Handles different conversion specifiers:
 . c - prints a character. i.e _printf("%c", 'A');
 . s - prints a string. i.e. _printf("%s", "Hello World!");
