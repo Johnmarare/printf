@@ -26,11 +26,6 @@ int _printf(const char *format, ...)
 		if (format[j] == '%')/*before specifier percent*/
 		{
 			j++;
-			if (*format == '-')
-			{
-				left_align = 1;
-				format++;
-			}
 			switch (format[j])
 			{
 				case 'c':/*as in character*/
@@ -40,7 +35,6 @@ int _printf(const char *format, ...)
 				case 'd':/*as in decimal*/
 					d = va_arg(args, int);
 					count += print_number(d);
-					count += handle_d_conversion(args, left_align);
 					break;
 				case 'i':/*signed integer*/
 					i = va_arg(args, int);
