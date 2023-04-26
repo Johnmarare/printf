@@ -9,4 +9,4 @@ Handles different conversion specifiers:
 . % - prints a percent. i.e _printf("20%%");
 . d - prints intrgers. i.e _printf("%d", 20);
 . i - prints integers. i.e _printf("%i", 1234567890);
-
+. b - the unsigned int argument is converted to binary
