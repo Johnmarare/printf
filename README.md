@@ -25,7 +25,7 @@ The function _printf writes output to standard output. The function writes under
 		Return:
 Upon success, returns the number of characters printed (excluding the null byte used to end output to strings)
 
-Handles different conversion specifiers:
+	conversion specifiers handling:
 . c - prints a character. i.e _printf("%c", 'A');
 . s - prints a string. i.e. _printf("%s", "Hello World!");
 . % - prints a percent. i.e _printf("20%%");
