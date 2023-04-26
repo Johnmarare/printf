@@ -88,8 +88,6 @@ int _printf(const char *format, ...)
 						return (-1);
 					count += print_rot13(R);
 					break;
-				case '-':
-
 				case '%':
 					_putchar('%');
 					count++;
