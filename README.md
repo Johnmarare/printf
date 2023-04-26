@@ -14,3 +14,4 @@ Handles different conversion specifiers:
 . o - prints octal
 . x - prints hexadecimal lowercase
 . X - prints hexadecimal uppercase
+. R - print a string encoded in rot13 format
