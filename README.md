@@ -1,6 +1,7 @@
-	Custom printf
+				Custom printf
 
 		Name: _printf
+
 What is printf? printf is the C language function to do format-ted printing.
 		The same function is also available in PERL.-  
 Secrets of “printf” by Professor Don Colton.
@@ -8,11 +9,12 @@ Secrets of “printf” by Professor Don Colton.
 	Prototype: int _printf(const char *format, ...);
 
 This prototype is an implementation of the printf standard function and variadic function 
+@format is a character string. The format string is composed of zero or more directives. 
 
 The real power of printf is when we are printing the contents of variables - 
 Professor Don Colton
 
- how does printf works?
+		how does printf works?
 
 In the most simple case, printf takes one argument:a string of characters to be printed. This string iscomposed of characters, each of which is printed ex-actly as it appears.- Secrets of "printf"
 
