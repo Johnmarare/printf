@@ -75,7 +75,8 @@ int _printf(const char *format, ...)
 					p = va_arg(args, void *);
 					if (p == NULL)
 						return (-1);
-					count += _print_address(p);												break;
+					count += _print_address(p);
+					break;
 				case 'r':
 					r = va_arg(args, char *);
 					if (r == NULL)
