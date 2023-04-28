@@ -9,6 +9,23 @@
 #include<limits.h>
 #include<math.h>
 
+/*flag modifier macros*/
+#define PLUS 1
+#define SPACE 2
+#define HASH 4
+#define ZERO 8
+#define NEG 16
+#define PLUS_FLAG (flags & 1)
+#define SPACE_FLAG ((flags >> 1) & 1)
+#define HASH_FLAG ((flags >> 2) & 1)
+#define ZERO_FLAG ((flags >> 3) & 1)
+#define NEG_FLAG ((flags >> 4) & 1)
+
+/* Length modifiers macros*/
+#define SHORT 1
+#define LONG 2
+
+
 /**
  * struct format - match the conversion specifiers for printf
  * @op: type char pointer of the specifier i.e (l, h) for (d, i, u, o, x, X)
@@ -20,6 +37,18 @@ typedef struct format
 	char *op;
 	int (*f)();
 } found_match;
+
+
+/**
+ * struct flag_s - A new type defining a flags struct.
+ * @flag: A character representing a flag.
+ * @value: The integer value of the flag.
+ */
+typedef struct flag_s
+{
+	unsigned char flag;
+	unsigned char value;
+} flag_t;
 
 
 int _printf(const char *format, ...);
@@ -39,4 +68,9 @@ int str_rev(va_list args);
 int _print_address(va_list args);
 int print_rot13(va_list args);
 int print_percent(void);
+
+unsigned char handle_flags(const char *flags);
+unsigned char length_handler(const char *modif);
+char handle_width(va_list args, const char *modif, char *ind);
+
 #endif
