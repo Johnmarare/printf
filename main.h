@@ -51,6 +51,20 @@ typedef struct flag_s
 } flag_t;
 
 
+/**
+ * struct buffer_s - A new type defining a buffer struct.
+ * @buffer: A pointer to a character array.
+ * @start: A pointer to the start of buffer.
+ * @len: The length of the string stored in buffer.
+ */
+typedef struct buffer_s
+{
+	char *buffer;
+	char *start;
+	unsigned int len;
+} buff_t;
+
+
 int _printf(const char *format, ...);
 int print_number(va_list args);
 int _putchar(char c);
