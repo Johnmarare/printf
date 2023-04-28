@@ -47,6 +47,10 @@ int _print_hex(unsigned long int num)
 	}
 	count++;
 	array = malloc(count * sizeof(long int));
+	if (array == NULL)
+	{
+		exit (98);
+	}
 	for (i = 0; i < count; i++)
 	{
 		array[i] = temp % 16;
