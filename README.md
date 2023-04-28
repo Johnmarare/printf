@@ -39,3 +39,5 @@ Upon success, returns the number of characters printed (excluding the null byte 
 . R - print a string encoded in rot13 format
 . S - custom conversion specifier, prints string
 . r - prints the reversed string
+
+/* We havent handled flags and length and precision modifiers yet. Working on it*/
