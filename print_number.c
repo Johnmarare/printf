@@ -6,18 +6,18 @@
  */
 int print_number(va_list args)
 {
-	int n;
-	int num;
-	int last;
-	int digit;
-	int  i = 1;
-	int exp = 1;
+	long int n;
+	int num, last, digit;
+	int  i = 1, exp = 1;
 
-	n = va_arg(args, int);
+	if (sizeof(long int) == sizeof(int))
+		n = va_arg(args, int);
+	else
+		n = va_arg(args, long int);
+
 	last = n % 10;
 	n = n / 10;
 	num = n;
-
 	if (last < 0)
 	{
 		_putchar('-');
@@ -44,6 +44,5 @@ int print_number(va_list args)
 		}
 	}
 	_putchar(last + '0');
-
 	return (i);
 }
